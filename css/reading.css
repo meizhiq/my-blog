@@ -1,0 +1,78 @@
+@charset "UTF-8";
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: #3498db;
+  z-index: 9999;
+  transition: width 80ms linear;
+  pointer-events: none;
+}
+
+body.dark-mode #reading-progress {
+  background: #5dade2;
+}
+
+.post .post-meta {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #666;
+}
+
+.post .post-meta a {
+  color: #666;
+}
+
+.post .post-meta .meta-wordcount {
+  color: #666;
+}
+
+.post .post-meta .metadata-icon-clock {
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1;
+  position: relative;
+  top: -2px;
+}
+
+body.dark-mode .post .post-meta {
+  color: #888;
+}
+
+body.dark-mode .post .post-meta a,
+body.dark-mode .post .post-meta .meta-wordcount {
+  color: #888;
+}
+
+.post-content {
+  line-height: 1.8;
+}
+.post-content p {
+  margin-bottom: 1.3em;
+}
+
+.post-content blockquote {
+  display: table; /* 关键：让宽度自适应内容，且保持块级特性 */
+  width: auto;
+  max-width: 85%; /* 限制最大宽度，防止长句撑满 */
+  border-left: 2px solid #eee; /* 线条调得更浅更细，不扎眼 */
+  background: none; /* 彻底去掉突兀的背景色 */
+  margin: 1.5em 0; /* 增加上下间距，与前后文拉开距离 */
+  padding: 0.2em 0 0.2em 1em; /* 缩小内边距，让线条离文字更近，显得精致 */
+  color: #777; /* 文字颜色调浅一点点，体现它是“心声” */
+  font-style: italic; /* 使用斜体，增加文学感 */
+}
+.post-content blockquote::before, .post-content blockquote::after {
+  content: none;
+}
+.post-content blockquote p {
+  margin: 0;
+  display: inline;
+}
+
+body.dark-mode .post-content blockquote {
+  border-left-color: #333;
+  color: #999;
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>5 月 22 日 | Meizhi's Blog</title><link rel="stylesheet" type="text/css" href="/my-blog/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/my-blog/css/reading.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="32x32" href="/my-blog/favicon-32x32.png"><link rel="icon" mask="" sizes="16x16" href="/my-blog/favicon-16x16.png"><link rel="icon" mask="" sizes="180x180" href="/my-blog/favicon-180x180.png"><link rel="icon" mask="" sizes="192x192" href="/my-blog/favicon-192x192.png"><link rel="icon" mask="" sizes="512x512" href="/my-blog/favicon-512x512.png"><link rel="icon" mask="" sizes="2048x2048" href="/my-blog/favicon-2048x2048.png"><link rel="Shortcut Icon" type="image/x-icon" href="/my-blog/favicon-32x32.png"><link rel="apple-touch-icon" href="/my-blog/favicon-180x180.png"><link rel="apple-touch-icon-precomposed" href="/my-blog/favicon-180x180.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var html = document.querySelector('html');
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+//- 更新图标显示
+function updateDarkModeIcon() {
+  var icon = document.querySelector('.darkmode-toggle i');
+  if (icon) {
+    if (html.dataset.dark === 'true') {
+      icon.className = 'fa fa-sun-o'; // 暗色模式显示太阳
+    } else {
+      icon.className = 'fa fa-moon-o'; // 亮色模式显示月亮
+    }
+  }
+}
+
+//- 切换暗色亮色
+function toggleDarkMode() {
+  if (html) {
+    localStorage.dark = !(html.dataset.dark === 'true');
+    html.dataset.dark = localStorage.dark;
+    updateDarkModeIcon(); // 切换后更新图标
+  } else {
+    console.error('Failed to find the html element.');
+  }
+}
+
+//- 页面加载时初始化图标
+document.addEventListener('DOMContentLoaded', function() {
+  updateDarkModeIcon();
+});
+
+//- 测试浏览器暗色模式,打开更多工具,点击渲染,打开css强制暗色即可</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">5 月 22 日</h1><div class="header-title-container"><a id="logo" href="/my-blog/.">Meizhi's Blog</a><a class="darkmode-toggle" href="#" onclick="toggleDarkMode(); return false;" title="切换主题"> <i class="fa fa-moon-o"></i></a></div><p class="description"></p></div><div id="nav-menu"><a href="/my-blog/."><i class="fa fa-home"></i> Home</a><a href="/my-blog/tags/"><i class="fa fa-tag"></i> Tags</a><a class="current" href="/my-blog/almanac/"><i class="fa fa-calendar"></i> Almanac</a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><header class="flex items-center justify-between"><h1 class="post-title">5 月 22 日</h1><nav class="post-meta-almanac"><a class="post-nav-link" href="/my-blog/almanac/05-21/">Pre</a><span>&nbsp;|&nbsp;</span><a class="post-nav-link" href="javascript:;" onclick="gotoToday()">Now</a><span>&nbsp;|&nbsp;</span><a class="post-nav-link" href="/my-blog/almanac/05-23/">Next</a><form id="goto-almanac" onsubmit="return gotoAlmanac(this);"><div class="almanac-group"><input class="almanac-input" id="almanac-input" type="text" placeholder="MMDD" aria-label="跳转到某天（MMDD）" maxlength="4" inputmode="numeric" pattern="\d{3,4}" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="almanac-btn" type="submit">Go</button></div></form></nav></header><div class="post-content"></div><script>(function(){
+  var BASE = '/my-blog';
+  function pad2(n){ return String(n).padStart(2,'0'); }
+  function validMD(mm, dd){
+    // 用 2000-??-?? 校验闰年与日期合法
+    var d = new Date(Date.UTC(2000, mm - 1, dd, 12, 0, 0));
+    return (d.getUTCMonth() + 1) === mm && d.getUTCDate() === dd;
+  }
+
+  window.gotoToday = function(){
+    try {
+      var fmt = new Intl.DateTimeFormat('de-DE', {
+        timeZone: 'Asia/Shanghai',
+        year: 'numeric', month: '2-digit', day: '2-digit'
+      });
+      var parts = fmt.formatToParts(new Date());
+      var by = {};
+      parts.forEach(p => by[p.type] = p.value);
+      var mm = by.month;
+      var dd = by.day;
+      var key = mm + '-' + dd;
+      location.href = (BASE + '/almanac/' + key + '/').replace(/\/{2,}/g, '/');
+    } catch(e) {
+      var d = new Date();
+      var m = String(d.getMonth()+1).padStart(2,'0');
+      var d2 = String(d.getDate()).padStart(2,'0');
+      location.href = (BASE + '/almanac/' + m + '-' + d2 + '/').replace(/\/{2,}/g, '/');
+    }
+  };
+
+  // 允许在表单里输入 MMDD 并跳转
+  window.gotoAlmanac = function(form){
+    var input = form.querySelector('input');
+    var v = (input.value || '').trim();
+    if (!v) return false;
+
+    // 允许纯数字：MMDD 或 MDD（如 703 → 07-03）
+    var m = v.match(/^(\d{3,4})$/);
+    if (!m) { 
+      alert('请输入形如 MMDD 的数字（如 703 或 1129）'); 
+      return false; 
+    }
+
+    var digits = m[1];
+    var mm, dd;
+    if (digits.length === 3) { // 703 → 07-03
+      mm = +digits[0];
+      dd = +digits.slice(1);
+    } else { // 0703 → 07-03
+      mm = +digits.slice(0, 2);
+      dd = +digits.slice(2);
+    }
+
+    if (!validMD(mm, dd)) { 
+      alert('无效日期'); 
+      return false; 
+    }
+
+    var key = pad2(mm) + '-' + pad2(dd);
+    location.href = (BASE + '/almanac/' + key + '/').replace(/\/{2,}/g, '/');
+    return false; // 阻止表单默认提交
+  };
+
+  // ==== 新增：左右方向键快捷导航 ====
+  var PRE  = (BASE + '/almanac/05-21/').replace(/\/{2,}/g, '/');
+  var NEXT = (BASE + '/almanac/05-23/').replace(/\/{2,}/g, '/');
+
+  function isEditableTarget(el){
+    if (!el) return false;
+    if (el.isContentEditable) return true;
+    var tag = (el.tagName || '').toUpperCase();
+    return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+  }
+
+  document.addEventListener('keydown', function(e){
+    // 忽略被其它逻辑捕获、含修饰键、或正处于可编辑区域的按键
+    if (e.defaultPrevented) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (isEditableTarget(e.target)) return;
+
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      location.href = PRE;
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      location.href = NEXT;
+    }
+  });
+})();</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-star-o"></i> Tags</div><div class="tagcloud"><ul class="tagcloud"><li class="tagcloud"><a href="/my-blog/tags/情感生活" title="情感生活" rel="1">情感生活</a><span class="tagcloud">(1)</span></li><li class="tagcloud"><a href="/my-blog/tags/自我学习" title="自我学习" rel="1">自我学习</a><span class="tagcloud">(1)</span></li></ul></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"></i> Updated</div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/my-blog/2026/03/15/%E6%88%91%E4%BB%AC%E7%9A%84%E7%9B%B8%E9%81%87/">我们的相遇: 一段被时间慢慢点亮的故事</a></li><li class="post-list-item"><a class="post-list-link" href="/my-blog/2026/03/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a></li><li class="post-list-item"><a class="post-list-link" href="/my-blog/2026/03/12/hello-world/">Hello World</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2026-2026 <a href="/my-blog/." rel="nofollow">Meizhi's Blog.</a></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script type="text/javascript" src="/my-blog/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/my-blog/js/customJS.js?v=1.0.0"></script><script type="text/javascript" src="/my-blog/js/copycode.js?v=1.0.0" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/my-blog/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/my-blog/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/my-blog/js/smartresize.js?v=1.0.0"></script><script src="/my-blog/js/history-today.js"></script><script src="/my-blog/js/random-posts.js"></script><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var html = document.querySelector('html');
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+//- 更新图标显示
+function updateDarkModeIcon() {
+  var icon = document.querySelector('.darkmode-toggle i');
+  if (icon) {
+    if (html.dataset.dark === 'true') {
+      icon.className = 'fa fa-sun-o'; // 暗色模式显示太阳
+    } else {
+      icon.className = 'fa fa-moon-o'; // 亮色模式显示月亮
+    }
+  }
+}
+
+//- 切换暗色亮色
+function toggleDarkMode() {
+  if (html) {
+    localStorage.dark = !(html.dataset.dark === 'true');
+    html.dataset.dark = localStorage.dark;
+    updateDarkModeIcon(); // 切换后更新图标
+  } else {
+    console.error('Failed to find the html element.');
+  }
+}
+
+//- 页面加载时初始化图标
+document.addEventListener('DOMContentLoaded', function() {
+  updateDarkModeIcon();
+});
+
+//- 测试浏览器暗色模式,打开更多工具,点击渲染,打开css强制暗色即可</script></div></body></html>

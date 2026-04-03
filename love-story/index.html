@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content=""><title>时光机 | Meizhi's Blog</title><link rel="stylesheet" type="text/css" href="/my-blog/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/my-blog/css/reading.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/latest/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/latest/grids-responsive-min.min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/latest/jquery.min.js"></script><link rel="icon" mask="" sizes="32x32" href="/my-blog/favicon-32x32.png"><link rel="icon" mask="" sizes="16x16" href="/my-blog/favicon-16x16.png"><link rel="icon" mask="" sizes="180x180" href="/my-blog/favicon-180x180.png"><link rel="icon" mask="" sizes="192x192" href="/my-blog/favicon-192x192.png"><link rel="icon" mask="" sizes="512x512" href="/my-blog/favicon-512x512.png"><link rel="icon" mask="" sizes="2048x2048" href="/my-blog/favicon-2048x2048.png"><link rel="Shortcut Icon" type="image/x-icon" href="/my-blog/favicon-32x32.png"><link rel="apple-touch-icon" href="/my-blog/favicon-180x180.png"><link rel="apple-touch-icon-precomposed" href="/my-blog/favicon-180x180.png"><script type="text/javascript" src="//lib.baomitu.com/clipboard.js/latest/clipboard.min.js"></script><script type="text/javascript" src="//lib.baomitu.com/toastr.js/latest/toastr.min.js"></script><link rel="stylesheet" href="//lib.baomitu.com/toastr.js/latest/toastr.min.css"><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var html = document.querySelector('html');
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+//- 更新图标显示
+function updateDarkModeIcon() {
+  var icon = document.querySelector('.darkmode-toggle i');
+  if (icon) {
+    if (html.dataset.dark === 'true') {
+      icon.className = 'fa fa-sun-o'; // 暗色模式显示太阳
+    } else {
+      icon.className = 'fa fa-moon-o'; // 亮色模式显示月亮
+    }
+  }
+}
+
+//- 切换暗色亮色
+function toggleDarkMode() {
+  if (html) {
+    localStorage.dark = !(html.dataset.dark === 'true');
+    html.dataset.dark = localStorage.dark;
+    updateDarkModeIcon(); // 切换后更新图标
+  } else {
+    console.error('Failed to find the html element.');
+  }
+}
+
+//- 页面加载时初始化图标
+document.addEventListener('DOMContentLoaded', function() {
+  updateDarkModeIcon();
+});
+
+//- 测试浏览器暗色模式,打开更多工具,点击渲染,打开css强制暗色即可</script><meta name="generator" content="Hexo 8.1.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">时光机</h1><div class="header-title-container"><a id="logo" href="/my-blog/.">Meizhi's Blog</a><a class="darkmode-toggle" href="#" onclick="toggleDarkMode(); return false;" title="切换主题"> <i class="fa fa-moon-o"></i></a></div><p class="description"></p></div><div id="nav-menu"><a href="/my-blog/."><i class="fa fa-home"></i> Home</a><a href="/my-blog/tags/"><i class="fa fa-tag"></i> Tags</a><a href="/my-blog/almanac/"><i class="fa fa-calendar"></i> Almanac</a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">时光机</h1><div class="post-content"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码不正确，请重试。" data-whm="内容校验失败，请刷新后重试。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="74c366a507fb6001f1a8245c35406ac1b1d63ffa35564aa3a1d8a3f0fdd0f128">8bfb730b2a456478b642f12a8aceef641053d0e0597be58494b61cd87aef70a39660e75e24ec3cbef84aa60319c0cfe3689f842d09a9544a4a036405b262283602d632269ac68cd9163aaf22b0518144dfcfd161ce1e5ecd2f101bcfdd1309ded31383b9ff41cadf6ecaad7880fe026fb979efb92d54fcaf3139f00a05915b79903caf2fd0737165e946cdd371af1a18514303e53d343d69ca7fa4ab1ccac131de6adcc0016438588f06bb7d0fa797dc</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">请输入密码查看完整内容。</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/my-blog/lib/hbe.js"></script><link href="/my-blog/css/hbe.style.css" rel="stylesheet" type="text/css"></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="widget-title"><i class="fa fa-star-o"></i> Tags</div><div class="tagcloud"><ul class="tagcloud"><li class="tagcloud"><a href="/my-blog/tags/情感生活" title="情感生活" rel="1">情感生活</a><span class="tagcloud">(1)</span></li><li class="tagcloud"><a href="/my-blog/tags/自我学习" title="自我学习" rel="1">自我学习</a><span class="tagcloud">(1)</span></li></ul></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"></i> Updated</div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/my-blog/2026/03/15/%E6%88%91%E4%BB%AC%E7%9A%84%E7%9B%B8%E9%81%87/">我们的相遇: 一段被时间慢慢点亮的故事</a></li><li class="post-list-item"><a class="post-list-link" href="/my-blog/2026/03/13/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">我的第一篇文章</a></li><li class="post-list-item"><a class="post-list-link" href="/my-blog/2026/03/12/hello-world/">Hello World</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2026-2026 <a href="/my-blog/." rel="nofollow">Meizhi's Blog.</a></div></div></div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script><script type="text/javascript" src="/my-blog/js/fancybox.js?v=1.0.0"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/my-blog/js/customJS.js?v=1.0.0"></script><script type="text/javascript" src="/my-blog/js/copycode.js?v=1.0.0" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/my-blog/css/copycode.css?v=1.0.0"><script type="text/javascript" src="/my-blog/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/my-blog/js/smartresize.js?v=1.0.0"></script><script src="/my-blog/js/history-today.js"></script><script src="/my-blog/js/random-posts.js"></script><script>var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+var html = document.querySelector('html');
+html.dataset.dark = localStorage.dark || prefersDarkMode.matches;
+
+//- 更新图标显示
+function updateDarkModeIcon() {
+  var icon = document.querySelector('.darkmode-toggle i');
+  if (icon) {
+    if (html.dataset.dark === 'true') {
+      icon.className = 'fa fa-sun-o'; // 暗色模式显示太阳
+    } else {
+      icon.className = 'fa fa-moon-o'; // 亮色模式显示月亮
+    }
+  }
+}
+
+//- 切换暗色亮色
+function toggleDarkMode() {
+  if (html) {
+    localStorage.dark = !(html.dataset.dark === 'true');
+    html.dataset.dark = localStorage.dark;
+    updateDarkModeIcon(); // 切换后更新图标
+  } else {
+    console.error('Failed to find the html element.');
+  }
+}
+
+//- 页面加载时初始化图标
+document.addEventListener('DOMContentLoaded', function() {
+  updateDarkModeIcon();
+});
+
+//- 测试浏览器暗色模式,打开更多工具,点击渲染,打开css强制暗色即可</script></div></body></html>
