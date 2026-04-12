@@ -76,3 +76,43 @@ body.dark-mode .post-content blockquote {
   border-left-color: #333;
   color: #999;
 }
+
+.post-content #hexo-blog-encrypt .hbe-content {
+  text-align: left;
+  font-size: 100%;
+  padding: 0.5em 0;
+}
+
+.post-content #hexo-blog-encrypt .hbe-input {
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+  display: block;
+  padding-bottom: 0;
+}
+
+.post-content #hexo-blog-encrypt .hbe-input-label-xray {
+  position: static;
+  top: auto;
+  left: auto;
+  width: auto;
+  display: block;
+  letter-spacing: 0;
+  margin-bottom: 0.4em;
+  transform: none;
+}
+
+.post-content #hexo-blog-encrypt .hbe-input-label-content-xray {
+  padding: 0;
+}
+
+.post-content #hexo-blog-encrypt .hbe-input-field-xray {
+  margin-top: 0;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  padding: 0.45em 0.55em;
+}
+
+.post-content #hexo-blog-encrypt .hbe-graphic-xray {
+  display: none;
+}
