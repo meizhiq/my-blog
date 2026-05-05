@@ -74,6 +74,13 @@
   line-height: 1.35;
 }
 
+.section-comment-drawer-meta {
+  margin-top: 0.28rem;
+  color: #888;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
 .section-comment-drawer-close {
   display: inline-flex;
   align-items: center;

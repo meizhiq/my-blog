@@ -20,6 +20,7 @@
     activeTarget: null,
     drawer: null,
     drawerTitle: null,
+    drawerMeta: null,
     drawerBody: null
   };
 
@@ -46,7 +47,8 @@
   }
 
   function parseDailyHeading(text) {
-    var match = String(text || '').match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})(?:\s*[日号])?(?:\s*[—\-–~至到]\s*(\d{1,2})\s*[日号]?)?/);
+    var source = String(text || '').replace(/\s+/g, ' ').trim();
+    var match = source.match(/(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})(?:\s*[日号])?(?:\s*[—\-–~至到]\s*(\d{1,2})\s*[日号]?)?/);
     if (!match) return null;
 
     var year = match[1];
@@ -54,10 +56,17 @@
     var day = pad(match[3]);
     var endDay = match[4] ? pad(match[4]) : '';
     var slug = 'day-' + year + '-' + month + '-' + day + (endDay ? '-' + endDay : '');
+    var label = year + '年' + Number(month) + '月' + Number(day) + '日' + (endDay ? '-' + Number(endDay) + '日' : '');
+    var title = source
+      .replace(match[0], '')
+      .replace(/^[\s（(]*星期[一二三四五六日天][）)]?\s*/, '')
+      .replace(/^[\s·・:：\-—–|]+/, '')
+      .trim();
 
     return {
       slug: slug,
-      label: year + '年' + Number(month) + '月' + Number(day) + '日' + (endDay ? '-' + Number(endDay) + '日' : '')
+      label: label,
+      title: title || label
     };
   }
 
@@ -110,6 +119,7 @@
       '<div class="section-comment-drawer-head">',
       '  <div>',
       '    <h2 class="section-comment-drawer-title"></h2>',
+      '    <div class="section-comment-drawer-meta"></div>',
       '  </div>',
       '  <button class="section-comment-drawer-close" type="button" aria-label="关闭评论"><i class="fa fa-times" aria-hidden="true"></i></button>',
       '</div>',
@@ -119,6 +129,7 @@
     document.body.appendChild(drawer);
     state.drawer = drawer;
     state.drawerTitle = drawer.querySelector('.section-comment-drawer-title');
+    state.drawerMeta = drawer.querySelector('.section-comment-drawer-meta');
     state.drawerBody = drawer.querySelector('.section-comment-drawer-body');
     drawer.querySelector('.section-comment-drawer-close').addEventListener('click', closeDrawer);
     document.addEventListener('keydown', function (event) {
@@ -211,7 +222,8 @@
       var drawer = ensureDrawer();
       closeInlineHosts();
       resetTriggers();
-      state.drawerTitle.textContent = item.daily.label;
+      state.drawerTitle.textContent = item.daily.title;
+      state.drawerMeta.textContent = item.daily.label;
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
       trigger.setAttribute('aria-expanded', 'true');
