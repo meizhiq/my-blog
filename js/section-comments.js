@@ -109,7 +109,6 @@
     drawer.innerHTML = [
       '<div class="section-comment-drawer-head">',
       '  <div>',
-      '    <div class="section-comment-drawer-kicker">按天评论</div>',
       '    <h2 class="section-comment-drawer-title"></h2>',
       '  </div>',
       '  <button class="section-comment-drawer-close" type="button" aria-label="关闭评论"><i class="fa fa-times" aria-hidden="true"></i></button>',
